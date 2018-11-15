@@ -1,0 +1,20 @@
+.color-picker .arrow, .color-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.color-picker > .color-picker-label > .picker-color > .picker-color-rect {
+    -fx-stroke: null;
+    -fx-fill : null;
+}
+
+.color-picker {
+    -fx-color-label-visible: false;
+    -fx-border-radius: 500px;
+}
+
+.color-palette .hyperlink {
+    visibility: hidden ;
+}
+
+
+
