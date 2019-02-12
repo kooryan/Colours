@@ -1,20 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?scenebuilder-stylesheet style.css?>
 
-<AnchorPane fx:id="pane" prefHeight="397.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
     <stylesheets>
         <URL value="@style.css" />
     </stylesheets>
 
     <children>
-      <ColorPicker fx:id="colorPicker" layoutX="105.0" layoutY="43.0" onAction="#changeColor" prefHeight="27.0" prefWidth="139.0" />
-      <Slider layoutX="11.0" layoutY="152.0" max="255.0" minorTickCount="0" prefHeight="38.0" prefWidth="327.0" showTickLabels="true" showTickMarks="true" />
-      <Slider layoutX="11.0" layoutY="272.0" max="255.0" minorTickCount="0" prefHeight="38.0" prefWidth="327.0" showTickLabels="true" showTickMarks="true" />
-      <Slider layoutX="11.0" layoutY="208.0" max="255.0" minorTickCount="0" prefHeight="38.0" prefWidth="327.0" showTickLabels="true" showTickMarks="true" />
-   </children>
+        <AnchorPane fx:id="child_pane" layoutX="33.0" layoutY="26.0" prefHeight="335.0" prefWidth="535.0">
+            <SplitPane focusTraversable="false" prefHeight="335.0" prefWidth="535.0">
+                <items>
+                    <Pane prefHeight="335.0" prefWidth="535.0">
+                        <ColorPicker fx:id="colorPicker" layoutX="198.0" layoutY="141.0" onAction="#changeColor" prefHeight="28.0" prefWidth="121.0" />
+                        <TextField fx:id="hexField" layoutX="199.0" layoutY="204.0" onAction="#enterHexCode" onKeyPressed="#limitText" prefHeight="27.0" prefWidth="132.0" promptText="Enter a hex code" />
+                        <Label layoutX="186.0" layoutY="208.0" text="#">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                  <Button fx:id="generateCode" layoutX="344.0" layoutY="204.0" mnemonicParsing="false" onAction="#generateHexCode" text="generate" />
+                  <Slider fx:id="R" layoutX="160.0" layoutY="14.0" max="255.0" onMouseDragged="#setRGBSliders" prefHeight="25.0" prefWidth="214.0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="G" layoutX="160.0" layoutY="52.0" max="255.0" onMouseDragged="#setRGBSliders" prefHeight="25.0" prefWidth="214.0" showTickLabels="true" showTickMarks="true" />
+                  <Slider fx:id="B" layoutX="160.0" layoutY="97.0" max="255.0" onMouseDragged="#setRGBSliders" prefHeight="25.0" prefWidth="214.0" showTickLabels="true" showTickMarks="true" />
+                    </Pane>
+                </items>
+            </SplitPane>
+            <effect>
+                <DropShadow color="#00000080" />
+            </effect>
+        </AnchorPane>
+    </children>
+
 </AnchorPane>

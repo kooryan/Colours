@@ -10,11 +10,18 @@
 .color-picker {
     -fx-color-label-visible: false;
     -fx-border-radius: 500px;
+
 }
 
 .color-palette .hyperlink {
     visibility: hidden ;
 }
+
+.main-pane {
+    -fx-border-radius: 100px;
+}
+
+
 
 
 
